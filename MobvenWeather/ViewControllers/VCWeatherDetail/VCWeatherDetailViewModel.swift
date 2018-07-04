@@ -11,12 +11,13 @@ import RxSwift
 
 class VCWeatherDetailViewModel {
     
+    let title : Variable<String> = Variable("")
     let detailModel: Variable<Weather.TemperatureDetails> = Variable(Weather.TemperatureDetails())
     
-    init(details: Weather.TemperatureDetails){
+    init(withCity name: String?, weather details: Weather){
         
-        detailModel.value = details
-        
+        detailModel.value = details.main
+        title.value    = "\(name ?? "") - \(details.dt_txt)"
     }
     
 }

@@ -15,4 +15,9 @@ enum Constants {
     
     static let citySearchHistory = "citySearchHistory"
     
+    
+    static let historyCellReuseIdentifier = "historyCellReuseIdentifier"
+    
+    static let weatherSegueIdentifier = "VCWeather"
+    static let weatherDetailSegueIdentifier = "VCWeatherDetail"
 }

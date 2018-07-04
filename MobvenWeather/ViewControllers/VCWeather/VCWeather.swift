@@ -23,10 +23,10 @@ class VCWeather: UIViewController {
     
     weak var delegate : VCWeatherDelegate?
     
-    let bag = DisposeBag()
+    private let bag = DisposeBag()
     
-    let cityLabel   = UILabel()
-    let weatherList = UITableView()
+    private let cityLabel   = UILabel()
+    private let weatherList = UITableView()
     
     var viewModel   : VCWeatherViewModel? = VCWeatherViewModel(withCity: "London")
 
@@ -77,6 +77,12 @@ class VCWeather: UIViewController {
         
         
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let destination = segue.destination as? VCWeatherDetail, let details = sender as? Weather else { return }
+        
+        destination.viewModel = VCWeatherDetailViewModel(withCity: viewModel?.cityName.value, weather: details)
+    }
 
 }
 
@@ -84,7 +90,7 @@ extension VCWeather: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        delegate?.didSelectTimeIntervalAtIndex(index: indexPath.row)
+        performSegue(withIdentifier: Constants.weatherDetailSegueIdentifier, sender: viewModel?.weatherData.value[indexPath.row])
         
     }
     

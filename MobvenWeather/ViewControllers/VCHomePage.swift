@@ -9,9 +9,7 @@
 import UIKit
 
 class VCHomePage: UIViewController {
-    
-    private let childSegue          = "VCWeather"
-    private let navigationSegue     = "VCWeatherDetail"
+
     
     private var weatherVC : VCWeather!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -20,7 +18,7 @@ class VCHomePage: UIViewController {
         super.viewDidLoad()
 
         searchBar.delegate = self
-        // Do any additional setup after loading the view.
+
     }
 
 
@@ -30,34 +28,20 @@ class VCHomePage: UIViewController {
         guard let identifier = segue.identifier else { return }
         
         switch identifier {
-        case childSegue:
+        case Constants.weatherSegueIdentifier:
             
             guard let destination = segue.destination as? VCWeather else { return }
             
             weatherVC = destination
-            weatherVC.delegate = self
         
-        case navigationSegue:
-            
-            guard let destination = segue.destination as? VCWeatherDetail, let details = sender as? Weather.TemperatureDetails else { return }
-            
-            destination.viewModel = VCWeatherDetailViewModel(details: details )
-            
         default:
-            print("No segue")
+            fatalError("No such segue")
         }
     }
     
 
 }
 
-extension VCHomePage : VCWeatherDelegate {
-    
-    func didSelectTimeIntervalAtIndex(index: Int) {
-        performSegue(withIdentifier: navigationSegue, sender: weatherVC.viewModel?.weatherData.value[index].main)
-    }
-    
-}
 
 extension VCHomePage : UISearchBarDelegate {
     
