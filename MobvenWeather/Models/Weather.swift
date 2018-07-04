@@ -12,7 +12,18 @@ struct Weather : Codable {
     
     struct TemperatureDetails: Codable {
         let temp: Float
+        let temp_max : Float
+        let temp_min : Float
         let humidity : Float
+        let pressure : Float
+        
+        init(){
+            temp     = 0
+            temp_max = 0
+            temp_min = 0
+            humidity = 0
+            pressure = 0
+        }
     }
     
     struct WeatherDetails: Codable {

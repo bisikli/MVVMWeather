@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LD9-bL-CJl">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,19 +10,93 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Weather-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Home Page-->
+        <scene sceneID="LNs-to-TSn">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="VCWeather" customModule="MobvenWeather" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <viewController id="BEx-GM-UFa" customClass="VCHomePage" customModule="MobvenWeather" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bxi-1x-7Q2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="rm6-GS-jEm">
+                                <rect key="frame" x="0.0" y="64" width="375" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1mu-47-olT">
+                                <rect key="frame" x="0.0" y="120" width="375" height="547"/>
+                                <connections>
+                                    <segue destination="Jj2-ny-hIH" kind="embed" identifier="VCWeather" id="6cI-Ze-6Aq"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="rm6-GS-jEm" firstAttribute="leading" secondItem="3vy-MP-bFN" secondAttribute="leading" id="Cvz-ak-knf"/>
+                            <constraint firstItem="rm6-GS-jEm" firstAttribute="trailing" secondItem="3vy-MP-bFN" secondAttribute="trailing" id="Mnz-oq-b9e"/>
+                            <constraint firstItem="3vy-MP-bFN" firstAttribute="bottom" secondItem="1mu-47-olT" secondAttribute="bottom" id="R3z-mN-kcg"/>
+                            <constraint firstItem="3vy-MP-bFN" firstAttribute="trailing" secondItem="1mu-47-olT" secondAttribute="trailing" id="RmT-b2-DkS"/>
+                            <constraint firstItem="rm6-GS-jEm" firstAttribute="top" secondItem="3vy-MP-bFN" secondAttribute="top" id="W5K-CN-RTJ"/>
+                            <constraint firstItem="1mu-47-olT" firstAttribute="leading" secondItem="3vy-MP-bFN" secondAttribute="leading" id="rGb-0O-Dup"/>
+                            <constraint firstItem="1mu-47-olT" firstAttribute="top" secondItem="rm6-GS-jEm" secondAttribute="bottom" id="zKV-gP-Jga"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="3vy-MP-bFN"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="OXA-Re-m7r"/>
+                    <connections>
+                        <outlet property="searchBar" destination="rm6-GS-jEm" id="F2c-rh-YyN"/>
+                        <segue destination="mMH-8V-2FA" kind="show" identifier="VCWeatherDetail" id="U6D-IU-g41"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wul-N8-Uz7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="300" y="133.5832083958021"/>
+        </scene>
+        <!--Weather Detail-->
+        <scene sceneID="6p1-4O-4pn">
+            <objects>
+                <viewController id="mMH-8V-2FA" customClass="VCWeatherDetail" customModule="MobvenWeather" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tBD-zg-Tfi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="sCi-a1-hto"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s0p-t5-Rbg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1327" y="912"/>
+        </scene>
+        <!--Weather-->
+        <scene sceneID="2Md-k0-X0r">
+            <objects>
+                <viewController id="Jj2-ny-hIH" customClass="VCWeather" customModule="MobvenWeather" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QDu-Ef-UjB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="547"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Re6-kk-Aa1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1327.2" y="133.5832083958021"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="pTE-jb-e8r">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LD9-bL-CJl" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zzg-Y3-eHD">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BEx-GM-UFa" kind="relationship" relationship="rootViewController" id="gbM-aF-gAm"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mpU-Dq-kS7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-639.20000000000005" y="133.5832083958021"/>
         </scene>
     </scenes>
 </document>

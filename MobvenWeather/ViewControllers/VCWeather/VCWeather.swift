@@ -15,7 +15,13 @@ class VCWeatherCell : UITableViewCell {
     
 }
 
+protocol VCWeatherDelegate: class {
+    func didSelectTimeIntervalAtIndex(index: Int)
+}
+
 class VCWeather: UIViewController {
+    
+    weak var delegate : VCWeatherDelegate?
     
     let bag = DisposeBag()
     
@@ -52,6 +58,7 @@ class VCWeather: UIViewController {
     private func setupViews(){
         
         weatherList.register(VCWeatherCell.classForCoder(), forCellReuseIdentifier: "VCWeatherCell")
+        weatherList.delegate = self
         
         view.addSubview(cityLabel)
         view.addSubview(weatherList)
@@ -75,6 +82,10 @@ class VCWeather: UIViewController {
 
 extension VCWeather: UITableViewDelegate {
     
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        delegate?.didSelectTimeIntervalAtIndex(index: indexPath.row)
+        
+    }
     
 }
