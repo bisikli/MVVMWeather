@@ -101,11 +101,11 @@
             </objects>
             <point key="canvasLocation" x="1242.4000000000001" y="-573.46326836581716"/>
         </scene>
-        <!--Item-->
+        <!--History-->
         <scene sceneID="pTE-jb-e8r">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LD9-bL-CJl" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="NTV-R7-JpM"/>
+                    <tabBarItem key="tabBarItem" title="History" id="NTV-R7-JpM"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zzg-Y3-eHD">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -138,11 +138,11 @@
             </objects>
             <point key="canvasLocation" x="-639.20000000000005" y="133.5832083958021"/>
         </scene>
-        <!--Item-->
+        <!--Current-->
         <scene sceneID="M8b-X7-y6E">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6oR-8y-PY6" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="suV-MW-ioR"/>
+                    <tabBarItem key="tabBarItem" title="Current" id="suV-MW-ioR"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="B4D-dI-FNX">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>

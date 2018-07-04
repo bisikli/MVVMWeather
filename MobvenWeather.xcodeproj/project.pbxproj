@@ -25,7 +25,7 @@
 		C664344720ECAC73004D3824 /* VCHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C664344620ECAC73004D3824 /* VCHistory.swift */; };
 		C664344920ECB37C004D3824 /* Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C664344820ECB37C004D3824 /* Builder.swift */; };
 		C6C83A5020EC8836006FD5DF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C83A4F20EC8836006FD5DF /* Constants.swift */; };
-		C6C83A5220EC88A2006FD5DF /* HistoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C83A5120EC88A2006FD5DF /* HistoryManager.swift */; };
+		C6C83A5220EC88A2006FD5DF /* VCHistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C83A5120EC88A2006FD5DF /* VCHistoryViewModel.swift */; };
 		CAC7236FB66958C2185063F0 /* Pods_MobvenWeatherUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8646B9709F8B9867B6BFB8B /* Pods_MobvenWeatherUITests.framework */; };
 		CCDCD2FBDE344788650A1415 /* Pods_MobvenWeather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF7C71017368DFC8BD3D75C4 /* Pods_MobvenWeather.framework */; };
 /* End PBXBuildFile section */
@@ -75,7 +75,7 @@
 		C664344620ECAC73004D3824 /* VCHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCHistory.swift; sourceTree = "<group>"; };
 		C664344820ECB37C004D3824 /* Builder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Builder.swift; sourceTree = "<group>"; };
 		C6C83A4F20EC8836006FD5DF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		C6C83A5120EC88A2006FD5DF /* HistoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryManager.swift; sourceTree = "<group>"; };
+		C6C83A5120EC88A2006FD5DF /* VCHistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCHistoryViewModel.swift; sourceTree = "<group>"; };
 		CEE1543B7557B8A2B28E0477 /* Pods-MobvenWeatherTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobvenWeatherTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MobvenWeatherTests/Pods-MobvenWeatherTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CF7C71017368DFC8BD3D75C4 /* Pods_MobvenWeather.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MobvenWeather.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D86CB6314400A0FF58096B51 /* Pods-MobvenWeatherUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobvenWeatherUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MobvenWeatherUITests/Pods-MobvenWeatherUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -149,16 +149,12 @@
 		C6554E2920EC04A700750AF3 /* MobvenWeather */ = {
 			isa = PBXGroup;
 			children = (
-				C664344520ECABF7004D3824 /* Utilities */,
 				C6554E2A20EC04A700750AF3 /* AppDelegate.swift */,
-				C6554E2E20EC04A700750AF3 /* Main.storyboard */,
-				C6554E3120EC04A800750AF3 /* Assets.xcassets */,
-				C6554E3320EC04A800750AF3 /* LaunchScreen.storyboard */,
-				C6554E3620EC04A800750AF3 /* Info.plist */,
 				C6554E6420EC15CF00750AF3 /* ViewControllers */,
 				C6554E6320EC15BD00750AF3 /* Models */,
-				C6554E5C20EC0EDA00750AF3 /* Extensions.swift */,
-				C6C83A4F20EC8836006FD5DF /* Constants.swift */,
+				C664344520ECABF7004D3824 /* Utilities */,
+				C664344C20ECBA70004D3824 /* Other */,
+				C664344B20ECBA57004D3824 /* Assets */,
 			);
 			path = MobvenWeather;
 			sourceTree = "<group>";
@@ -204,7 +200,7 @@
 				C664343E20EC9932004D3824 /* VCHomePage.swift */,
 				C664344020ECA0FD004D3824 /* VCWeatherDetail */,
 				C6554E6220EC130000750AF3 /* VCWeather */,
-				C664344620ECAC73004D3824 /* VCHistory.swift */,
+				C664344A20ECBA3B004D3824 /* VCHistory */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -222,10 +218,38 @@
 			isa = PBXGroup;
 			children = (
 				C6554E5820EC051B00750AF3 /* Downloader.swift */,
-				C6C83A5120EC88A2006FD5DF /* HistoryManager.swift */,
 				C664344820ECB37C004D3824 /* Builder.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		C664344A20ECBA3B004D3824 /* VCHistory */ = {
+			isa = PBXGroup;
+			children = (
+				C664344620ECAC73004D3824 /* VCHistory.swift */,
+				C6C83A5120EC88A2006FD5DF /* VCHistoryViewModel.swift */,
+			);
+			path = VCHistory;
+			sourceTree = "<group>";
+		};
+		C664344B20ECBA57004D3824 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				C6554E2E20EC04A700750AF3 /* Main.storyboard */,
+				C6554E3120EC04A800750AF3 /* Assets.xcassets */,
+				C6554E3320EC04A800750AF3 /* LaunchScreen.storyboard */,
+				C6554E3620EC04A800750AF3 /* Info.plist */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		C664344C20ECBA70004D3824 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				C6554E5C20EC0EDA00750AF3 /* Extensions.swift */,
+				C6C83A4F20EC8836006FD5DF /* Constants.swift */,
+			);
+			path = Other;
 			sourceTree = "<group>";
 		};
 		E48700EF14948EFDADEE11FC /* Frameworks */ = {
@@ -483,12 +507,14 @@
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SwifterSwift/SwifterSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwifterSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -538,7 +564,7 @@
 				C664344220ECA110004D3824 /* VCWeatherDetail.swift in Sources */,
 				C6554E5B20EC0E5600750AF3 /* VCWeather.swift in Sources */,
 				C6554E2B20EC04A700750AF3 /* AppDelegate.swift in Sources */,
-				C6C83A5220EC88A2006FD5DF /* HistoryManager.swift in Sources */,
+				C6C83A5220EC88A2006FD5DF /* VCHistoryViewModel.swift in Sources */,
 				C664344920ECB37C004D3824 /* Builder.swift in Sources */,
 				C6C83A5020EC8836006FD5DF /* Constants.swift in Sources */,
 				C664343F20EC9932004D3824 /* VCHomePage.swift in Sources */,

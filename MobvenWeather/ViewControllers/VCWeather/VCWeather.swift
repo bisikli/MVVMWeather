@@ -10,6 +10,7 @@ import UIKit
 import SnapKit
 import RxSwift
 import RxCocoa
+import SwifterSwift
 
 class VCWeatherCell : UITableViewCell {
     
@@ -27,6 +28,7 @@ class VCWeather: UIViewController {
     
     private let cityLabel   = UILabel()
     private let weatherList = UITableView()
+    private let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.whiteLarge)
     
     var viewModel   : VCWeatherViewModel? = VCWeatherViewModel(withCity: "London")
 
@@ -34,6 +36,10 @@ class VCWeather: UIViewController {
         
         setupViews()
         bindValues()
+        
+        viewModel?.networkOperationOnError = { error in
+            self.showAlert(title: "Hata", message: "\(error.localizedDescription)")
+        }
         
     }
     
@@ -53,15 +59,26 @@ class VCWeather: UIViewController {
             
         }.disposed(by: bag)
         
+        viewModel.networkOperationInProgress.asObservable().subscribe(onNext: { (status) in
+            DispatchQueue.main.async {
+                status ? self.activityIndicator.startAnimating():self.activityIndicator.stopAnimating()
+            }
+        }).disposed(by: bag)
+        
     }
 
     private func setupViews(){
         
+        activityIndicator.color = .red
+        activityIndicator.hidesWhenStopped = true
+        
         weatherList.register(VCWeatherCell.classForCoder(), forCellReuseIdentifier: "VCWeatherCell")
         weatherList.delegate = self
         
+        
         view.addSubview(cityLabel)
         view.addSubview(weatherList)
+        view.addSubview(activityIndicator)
         
         cityLabel.snp.makeConstraints { (maker) in
             maker.top.equalTo(view.safeArea.top).offset(20)
@@ -73,6 +90,10 @@ class VCWeather: UIViewController {
             maker.top.equalTo(cityLabel.snp.bottom).offset(20)
             maker.bottom.equalTo(view.safeArea.bottom)
             maker.right.left.equalTo(0)
+        }
+        
+        activityIndicator.snp.makeConstraints { (maker) in
+            maker.center.equalTo(view.snp.center)
         }
         
         

@@ -14,6 +14,17 @@ enum APIError: Error {
     
 }
 
+extension APIError : LocalizedError {
+    
+    var errorDescription: String? {
+        switch self {
+        case .error(let reason):
+            return reason
+        }
+    }
+    
+}
+
 
 
 class Downloader {

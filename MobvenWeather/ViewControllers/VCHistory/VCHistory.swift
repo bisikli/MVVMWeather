@@ -18,7 +18,7 @@ class VCHistoryCell : UITableViewCell {
 class VCHistory: UIViewController {
 
     private let bag = DisposeBag()
-    private let historyManager = HistoryManager()
+    private let historyManager = VCHistoryViewModel()
     
     let historyTable = UITableView()
 

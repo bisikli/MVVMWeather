@@ -9,7 +9,7 @@
 import Foundation
 import RxSwift
 
-class HistoryManager {
+class VCHistoryViewModel {
     
     let history : Variable<[String]> = Variable([])
     
